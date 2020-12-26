@@ -1,0 +1,44 @@
+<apex:page controller="SimilarBoatsController">
+    <apex:slds />
+    <apex:pageBlock >
+        <apex:facet name="header">
+            <apex:form >  
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="pbTitle">
+                                <h2 class="mainTitle">Boat Information</h2>
+                                <h2><apex:outputLink value="/{!boat.id}">{!boat.Name}</apex:outputLink></h2>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </apex:form>
+        </apex:facet>
+        <apex:pageBlockSection >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Length" for="boatLength"/>
+                <apex:outputText value="{!boat.Length__c}" id="boatLength"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Price" for="boatPrice"/>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!boat.Price__c}" />
+                </apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Year Built" for="boatYear"/>
+                <apex:outputText value="{!boat.Year_Built__c}" id="boatYear"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Boat Picture" for="boatPic"/>
+                <apex:outputLink value="/{!boat.id}">
+                  <apex:image value="{!boat.Picture__c}" style="max-width: 350px;" alt="{!boat.Name}"/>
+              </apex:outputLink>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <div>
+        <c:SimilarBoatsComponent paramMainBoatId="{!boat.Id}" paramMainBoatPrice="{!boat.Price__c}" paramMainBoatLength="{!boat.Length__c}" paramMainBoatYear="{!boat.Year_Built__c}"/>
+    </div>
+</apex:page>
