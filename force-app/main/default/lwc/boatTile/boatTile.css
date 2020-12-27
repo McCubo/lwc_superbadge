@@ -1,0 +1,18 @@
+.tile {
+    width: 100%;
+    height: 220px;
+    padding: 1px !important;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.selected {
+    border: 3px solid rgb(0, 95, 178);
+    border-radius: 5px;
+}
+
+.tile-wrapper {
+    cursor: pointer;
+    padding: 5px;
+}
