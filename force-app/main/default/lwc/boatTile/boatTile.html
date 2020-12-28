@@ -6,10 +6,10 @@
             <h1 class="slds-truncate slds-text-heading_medium">{boat.Name}</h1>
             <h2 class="slds-truncate slds-text-heading_small">{boat.Contact__r.Name}</h2>
             <div class="slds-text-body_small">
-                <lightning-formatted-number value={boat.Price__c} maximum-fraction-digits="2"></lightning-formatted-number>
+                Price: <lightning-formatted-number value={boat.Price__c} maximum-fraction-digits="2"></lightning-formatted-number>
             </div>
-            <div class="slds-text-body_small">{boat.Length__c}</div>
-            <div class="slds-text-body_small">{boat.BoatType__r.Name}</div>
+            <div class="slds-text-body_small">Length: {boat.Length__c}</div>
+            <div class="slds-text-body_small">Type: {boat.BoatType__r.Name}</div>
         </div>
     </div>
 </template>  
