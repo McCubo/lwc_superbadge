@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title={getTitle} icon-name="custom:custom54">
+        <lightning-layout multiple-rows="true">
+            <template if:true={noBoats}>
+                <p class="slds-align_absolute-center">There are no related boats by {similarBy}!</p>
+            </template>
+            <!-- Loop through the list of similar boats -->
+            <template for:each={relatedBoats} for:item="boat">
+                <!-- Responsive lightning-layout-item -->
+                <lightning-layout-item key={boat.Id} padding='around-small' size='12' small-device-size='6' medium-device-size='4' large-device-size='4'>
+                    <!-- Each boat tile goes here -->
+                    <c-boat-tile boat={boat} onboatselect={openBoatDetailPage}></c-boat-tile>
+                </lightning-layout-item>
+            </template>
+      </lightning-layout>
+    </lightning-card>
+</template>  
