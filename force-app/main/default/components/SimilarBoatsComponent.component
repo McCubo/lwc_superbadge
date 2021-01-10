@@ -1,0 +1,33 @@
+<apex:component controller="SimilarBoatsController"  access="global">
+  <apex:attribute name="paramMainBoatPrice" type="Double" description="The mainBoatPrice to assign to the Controller"  assignTo="{!mainBoatPrice}" />
+  <apex:attribute name="paramMainBoatLength" type="Integer" description="The mainBoatLength to assign to the Controller" assignTo="{!mainBoatLength}" />
+  <apex:attribute name="paramMainBoatYear" type="Integer" description="The mainBoatYear to assign to the Controller"  assignTo="{!mainBoatYear}" />
+  <apex:attribute name="paramMainBoatId" type="Id" description="The paramMainBoatId to assign to the Controller"  assignTo="{!mainBoatId}" />
+
+  <apex:pageBlock title="Similar Boats" mode="detail">
+    <apex:repeat var="similarBoat" value="{!similarBoats}">
+      <apex:pageBlockSection title="{!similarBoat.Name}">
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Length"/>
+          <apex:outputText value="{!similarBoat.Length__c}"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Price"/>
+          <apex:outputText value="{0, Number, Currency}">
+            <apex:param value="{!similarBoat.Price__c}" />
+          </apex:outputText>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Year"/>
+          <apex:outputText value="{!similarBoat.Year_Built__c}"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Boat Picture"/>
+            <apex:outputLink value="/{!similarBoat.id}">
+                <apex:image value="{!similarBoat.Picture__c}" style="max-width: 350px;" alt="{!similarBoat.Name}"/>
+            </apex:outputLink>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+    </apex:repeat>
+  </apex:pageBlock>
+</apex:component>
