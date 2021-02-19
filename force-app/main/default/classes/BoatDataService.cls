@@ -15,7 +15,6 @@ public with sharing class BoatDataService {
         if (String.isNotBlank(boatTypeId)) {
             query += ' WHERE BoatType__c = :boatTypeId';
         }
-        query += ' WITH SECURITY_ENFORCED ';
         return Database.query(query);
     }
 
