@@ -27,8 +27,8 @@ export default class BoatMap extends LightningElement {
     this.boatId = value;
   }
 
-  error = undefined;
-  mapMarkers = [];
+   @api error = undefined;
+   @api mapMarkers = [];
 
   // Initialize messageContext for Message Service
   @wire(MessageContext)
